@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - Foreground
   - Player
   - Ground
-  - 
-  - 
+  - World Confiner
+  - Door
   - 
   - 
   - 
@@ -41,11 +42,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: World Confiner
+    uniqueID: 3199289271
+    locked: 0
   - name: Background
     uniqueID: 2026030779
     locked: 0
-  - name: Foreground
-    uniqueID: 1377428747
+  - name: Door
+    uniqueID: 4127136357
     locked: 0
   - name: Player
     uniqueID: 3358505563

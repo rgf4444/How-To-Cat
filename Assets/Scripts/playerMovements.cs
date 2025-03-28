@@ -1,69 +1,61 @@
-using System.Collections;
 using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
 
-public class playerMovements : MonoBehaviour
+public class PlayerMovements : MonoBehaviour
 {
-    Rigidbody2D myRigidBody2D;
-    Animator myAnimator;
-    BoxCollider2D myBoxCollider2D;
-    float startingGravityScale;
-    bool isHurting = false;
-    [SerializeField] float runspeed = 10f;
-    [SerializeField] float jumpspeed = 15f;
+    private Rigidbody2D myRigidBody2D;
+    private Animator myAnimator;
+    private CapsuleCollider2D myCapCollider2D;
+    private float startingGravityScale;
+    private bool isHurting = false;
+
+    [SerializeField] private float runSpeed = 10f;
+    [SerializeField] private float jumpSpeed = 10f;
 
     void Start()
     {
         myRigidBody2D = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
-        myBoxCollider2D = GetComponent<BoxCollider2D>();
+        myCapCollider2D = GetComponent<CapsuleCollider2D>();
 
         startingGravityScale = myRigidBody2D.gravityScale;
     }
 
     void Update()
     {
-       if (!isHurting)
+        if (!isHurting)
         {
             Run();
             Jump();
-
-
         }
-
     }
+
     private void Jump()
     {
-        if(!myBoxCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return;  }
+        if (!myCapCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground"))) return;
 
-        bool isJumping = CrossPlatformInputManager.GetButtonDown("Jump");
-
-        if (isJumping)
+        if (Input.GetButtonDown("Jump"))
         {
-            Vector2 jumpVelocity = new Vector2(myRigidBody2D.linearVelocity.x, jumpspeed);
-            myRigidBody2D.linearVelocity = jumpVelocity;
+            myRigidBody2D.linearVelocity = new Vector2(myRigidBody2D.linearVelocity.x, jumpSpeed);
         }
     }
 
     private void Run()
     {
-        float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal");
+        float controlThrow = Input.GetAxisRaw("Horizontal"); // Snappier movement
 
-        Vector2 playerVelocity = new Vector2(controlThrow * runspeed, myRigidBody2D.linearVelocity.y);
+        Vector2 playerVelocity = new Vector2(controlThrow * runSpeed, myRigidBody2D.linearVelocity.y);
         myRigidBody2D.linearVelocity = playerVelocity;
 
         FlipSprite();
-        
     }
 
     private void FlipSprite()
     {
         bool runningHorizontally = Mathf.Abs(myRigidBody2D.linearVelocity.x) > Mathf.Epsilon;
 
-        if(runningHorizontally)
+        if (runningHorizontally)
         {
             transform.localScale = new Vector2(Mathf.Sign(myRigidBody2D.linearVelocity.x), 1f);
         }
     }
-
 }
