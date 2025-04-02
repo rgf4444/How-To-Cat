@@ -2,14 +2,22 @@ using UnityEngine;
 
 public class DoorTeleport : MonoBehaviour
 {
-    [SerializeField] private Vector2 teleportLocation; // Set destination in Inspector
-    [SerializeField] private Transform player; // Drag player here in Inspector
+    [SerializeField] private Vector2 teleportLocation;
+    [SerializeField] private Transform player;
+    private Rigidbody2D playerRb;
+
+    private void Start()
+    {
+        playerRb = player.GetComponent<Rigidbody2D>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform == player) // Check if it's the player
+        if (collision.transform == player)
         {
-            player.position = teleportLocation; // Move player to destination
+            player.position = teleportLocation;
+            playerRb.linearVelocity = Vector2.zero;
+            playerRb.angularVelocity = 0f;
         }
     }
 }

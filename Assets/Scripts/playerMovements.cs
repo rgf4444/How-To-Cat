@@ -3,10 +3,7 @@ using UnityEngine;
 public class PlayerMovements : MonoBehaviour
 {
     private Rigidbody2D myRigidBody2D;
-    private Animator myAnimator;
     private CapsuleCollider2D myCapCollider2D;
-    private float startingGravityScale;
-    private bool isHurting = false;
 
     [SerializeField] private float runSpeed = 10f;
     [SerializeField] private float jumpSpeed = 10f;
@@ -14,19 +11,13 @@ public class PlayerMovements : MonoBehaviour
     void Start()
     {
         myRigidBody2D = GetComponent<Rigidbody2D>();
-        myAnimator = GetComponent<Animator>();
         myCapCollider2D = GetComponent<CapsuleCollider2D>();
-
-        startingGravityScale = myRigidBody2D.gravityScale;
     }
 
     void Update()
     {
-        if (!isHurting)
-        {
-            Run();
-            Jump();
-        }
+        Run();
+        Jump();
     }
 
     private void Jump()
