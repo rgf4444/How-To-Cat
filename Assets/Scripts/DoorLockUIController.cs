@@ -61,6 +61,13 @@ public class DoorLockUIController : MonoBehaviour
         {
             Destroy(doorLockPanel);
             doorCollider.enabled = true;
+
+            var playerMovement = GameObject.FindWithTag("Player").GetComponent<PlayerMovements>();
+            if (playerMovement != null)
+            {
+                playerMovement.enabled = true;
+            }
+
         }
         else
         {
@@ -68,6 +75,7 @@ public class DoorLockUIController : MonoBehaviour
             StartCoroutine(ShowIncorrectMessage());
         }
     }
+
 
     private IEnumerator ShowIncorrectMessage()
     {

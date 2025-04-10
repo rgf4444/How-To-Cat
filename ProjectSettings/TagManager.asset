@@ -18,7 +18,7 @@ TagManager:
   - Ground
   - World Confiner
   - Door
-  - 
+  - Lever
   - 
   - 
   - 
@@ -53,6 +53,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3358505563
+    locked: 0
+  - name: Lever
+    uniqueID: 2291862041
     locked: 0
   - name: Ground
     uniqueID: 2834490701
