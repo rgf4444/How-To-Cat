@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DoorTeleport : MonoBehaviour
+public class DoorBehavior: MonoBehaviour
 {
     [SerializeField] private Vector2 teleportLocation;
     [SerializeField] private Transform player;

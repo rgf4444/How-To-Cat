@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c21cede2490a07e4ab711539a5b71496
+guid: 21aa8ca6f09d7c14c9b760428392cfef
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7508404651791430756
-    second: Toggle Off Button_0
+      213: -8769831786241343247
+    second: 1744213673141_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Toggle Off Button_0
+      name: 1744213673141_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 21
-        width: 194
-        height: 110
+        x: 0
+        y: 4
+        width: 1200
+        height: 718
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4643be3ef36333860800000000000000
-      internalID: 7508404651791430756
+      spriteID: 1f0c729747c4b4680800000000000000
+      internalID: -8769831786241343247
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Toggle Off Button_0: 7508404651791430756
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
